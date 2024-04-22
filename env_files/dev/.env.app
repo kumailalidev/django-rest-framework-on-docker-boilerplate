@@ -22,7 +22,7 @@ DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAM
 # SECURITY
 # ------------------------------------------------------------------------------
 # NGINX reverse proxy server
-DJANGO_CSRF_TRUSTED_ORIGINS=http://localhost:${SERVER_PORT_MAP}
+DJANGO_CSRF_TRUSTED_ORIGINS=http://localhost:${WEB_PORT_MAP}
 
 # EMAIL (mailhog)
 # ------------------------------------------------------------------------------
