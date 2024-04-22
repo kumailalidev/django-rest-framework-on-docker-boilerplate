@@ -297,6 +297,15 @@ RABBITMQ_PASS = env("BROKER_PASSWORD")
 RABBITMQ_VHOST = env("BROKER_VHOST")
 RABBITMQ_URL = env("BROKER_URL")
 
+# CELERY
+# https://docs.celeryq.dev/en/stable/userguide/configuration.html
+# https://docs.celeryq.dev/en/stable/django/first-steps-with-django.html
+# ------------------------------------------------------------------------------
+CELERY_BROKER_URL = RABBITMQ_URL
+CELERY_RESULT_BACKEND = (
+    f"redis://{REDIS_HOST}:{REDIS_PORT}/{REDIS_CELERY_RESULT_BACKEND_DB}"
+)
+
 # Django REST Framework
 # ------------------------------------------------------------------------------
 # https://www.django-rest-framework.org/api-guide/settings/#settings

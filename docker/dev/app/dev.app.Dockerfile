@@ -20,15 +20,20 @@ RUN pip install --upgrade pip
 COPY ./requirements ./requirements
 RUN pip install -r requirements/development.txt
 
-# copy scripts/dev/app/entrypoint.sh
+# entrypoint shell script
 COPY ./scripts/dev/app/entrypoint.sh /usr/src/app/scripts/dev/app/entrypoint.sh
 RUN sed -i 's/\r$//g' /usr/src/app/scripts/dev/app/entrypoint.sh
 RUN chmod +x /usr/src/app/scripts/dev/app/entrypoint.sh
 
-# copy scripts/dev/app/start.sh
+# Django startup shell script
 COPY ./scripts/dev/app/start.sh /usr/src/app/scripts/dev/app/start.sh
 RUN sed -i 's/\r$//g' /usr/src/app/scripts/dev/app/start.sh
 RUN chmod +x /usr/src/app/scripts/dev/app/start.sh
+
+# Celery startup shell script
+COPY ./scripts/dev/app/celery/worker/start.sh /usr/src/app/scripts/dev/app/celery/worker/start.sh
+RUN sed -i 's/\r$//g' /usr/src/app/scripts/dev/app/celery/worker/start.sh
+RUN chmod +x /usr/src/app/scripts/dev/app/celery/worker/start.sh
 
 # copy project
 COPY . .
