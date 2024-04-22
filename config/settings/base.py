@@ -279,6 +279,14 @@ LOGGING = {
 # with primary_key=True.
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
+# REDIS
+# https://docs.djangoproject.com/en/dev/topics/cache/#redis
+# ------------------------------------------------------------------------------
+REDIS_HOST = env("REDIS_SERVER_HOST")
+REDIS_PORT = env("REDIS_SERVER_PORT")
+REDIS_DB = 1
+REDIS_CELERY_RESULT_BACKEND_DB = 2
+
 # Django REST Framework
 # ------------------------------------------------------------------------------
 # https://www.django-rest-framework.org/api-guide/settings/#settings

@@ -15,7 +15,12 @@ DATABASE_USER=${DB_USER}
 DATABASE_PASSWORD=${DB_PASSWORD}
 DATABASE_HOST=${DB_HOST}
 DATABASE_PORT=${DB_PORT}
-DATABSE_URL=${DB_URL}
+DATABASE_URL=${DB_URL}
+
+# REDIS
+# ------------------------------------------------------------------------------
+REDIS_SERVER_HOST=${REDIS_STACK_SERVER_HOST}
+REDIS_SERVER_PORT=${REDIS_STACK_SERVER_PORT}
 
 # SECURITY
 # ------------------------------------------------------------------------------
