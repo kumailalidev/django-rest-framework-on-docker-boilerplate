@@ -35,6 +35,11 @@ COPY ./scripts/dev/app/celery/worker/start.sh /usr/src/app/scripts/dev/app/celer
 RUN sed -i 's/\r$//g' /usr/src/app/scripts/dev/app/celery/worker/start.sh
 RUN chmod +x /usr/src/app/scripts/dev/app/celery/worker/start.sh
 
+# Flower startup shell script
+COPY ./scripts/dev/app/celery/flower/start.sh /usr/src/app/scripts/dev/app/celery/flower/start.sh
+RUN sed -i 's/\r$//g' /usr/src/app/scripts/dev/app/celery/flower/start.sh
+RUN chmod +x /usr/src/app/scripts/dev/app/celery/flower/start.sh
+
 # copy project
 COPY . .
 
