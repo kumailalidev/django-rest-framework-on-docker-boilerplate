@@ -67,7 +67,7 @@ THIRD_PARTY_APPS = [
     "corsheaders",
 ]
 LOCAL_APPS = [
-    # ...
+    "project.core.apps.CoreConfig",
 ]
 
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
