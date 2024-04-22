@@ -15,9 +15,7 @@ DATABASE_USER=${DB_USER}
 DATABASE_PASSWORD=${DB_PASSWORD}
 DATABASE_HOST=${DB_HOST}
 DATABASE_PORT=${DB_PORT}
-
-# postgres://user:password@hostname_or_ip:port/database_name
-DATABASE_URL=postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}:${DB_PORT}/${DB_NAME}
+DATABSE_URL=${DB_URL}
 
 # SECURITY
 # ------------------------------------------------------------------------------
