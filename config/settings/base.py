@@ -287,6 +287,16 @@ REDIS_PORT = env("REDIS_SERVER_PORT")
 REDIS_DB = 1
 REDIS_CELERY_RESULT_BACKEND_DB = 2
 
+# RABBITMQ
+# https://www.rabbitmq.com/
+# ------------------------------------------------------------------------------
+RABBITMQ_HOST = env("BROKER_HOST")
+RABBITMQ_PORT = env("BROKER_PORT")
+RABBITMQ_USER = env("BROKER_USER")
+RABBITMQ_PASS = env("BROKER_PASSWORD")
+RABBITMQ_VHOST = env("BROKER_VHOST")
+RABBITMQ_URL = env("BROKER_URL")
+
 # Django REST Framework
 # ------------------------------------------------------------------------------
 # https://www.django-rest-framework.org/api-guide/settings/#settings

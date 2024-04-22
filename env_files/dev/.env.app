@@ -17,11 +17,6 @@ DATABASE_HOST=${DB_HOST}
 DATABASE_PORT=${DB_PORT}
 DATABASE_URL=${DB_URL}
 
-# REDIS
-# ------------------------------------------------------------------------------
-REDIS_SERVER_HOST=${REDIS_STACK_SERVER_HOST}
-REDIS_SERVER_PORT=${REDIS_STACK_SERVER_PORT}
-
 # SECURITY
 # ------------------------------------------------------------------------------
 # NGINX reverse proxy server
@@ -32,3 +27,18 @@ DJANGO_CSRF_TRUSTED_ORIGINS=http://localhost:${WEB_PORT_MAP}
 DJANGO_EMAIL_BACKEND=django.core.mail.backends.smtp.EmailBackend
 DJANGO_EMAIL_HOST=${SMTP_HOST}
 DJANGO_EMAIL_PORT=${SMTP_PORT}
+
+# REDIS
+# ------------------------------------------------------------------------------
+REDIS_SERVER_HOST=${REDIS_STACK_SERVER_HOST}
+REDIS_SERVER_PORT=${REDIS_STACK_SERVER_PORT}
+
+# RABBITMQ
+# ------------------------------------------------------------------------------
+BROKER=${BROKER_NAME}
+BROKER_HOST=${BROKER_HOST}
+BROKER_PORT=${BROKER_PORT}
+BROKER_USER=${BROKER_USER}
+BROKER_PASSWORD=${BROKER_PASSWORD}
+BROKER_VHOST=${BROKER_VHOST}
+BROKER_URL=${BROKER_URL}
