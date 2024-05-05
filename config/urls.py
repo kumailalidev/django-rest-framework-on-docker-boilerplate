@@ -41,7 +41,8 @@ urlpatterns = [
         name="redoc",
     ),
     # [API NAME]
-    # Your [API NAME] URLS...
+    # core
+    path("api/ping/", include("project.core.urls", namespace="core")),
 ]
 
 # for development environment only
