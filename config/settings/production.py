@@ -71,15 +71,30 @@ EMAIL_SUBJECT_PREFIX = env("DJANGO_EMAIL_SUBJECT_PREFIX")
 # https://docs.djangoproject.com/en/dev/ref/settings/#email-timeout
 EMAIL_TIMEOUT = env.int("DJANGO_EMAIL_TIMEOUT", default=None)
 
-# STATIC & MEDIA
-# ------------------------
+# STORAGES
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#storages
 STORAGES = {
     "default": {
+        # Default
         "BACKEND": "django.core.files.storage.FileSystemStorage",
     },
     "staticfiles": {
+        # Default
         "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
     },
+}
+
+# CACHES
+# ------------------------------------------------------------------------------
+# https://docs.djangoproject.com/en/dev/ref/settings/#caches
+CACHES = {
+    # TODO: Setup redis as a cache backend
+    # https://docs.djangoproject.com/en/5.0/topics/cache/#redis
+    "default": {
+        "BACKEND": "django.core.cache.backends.locmem.LocMemCache",
+        "LOCATION": "",
+    }
 }
 
 # ADMIN
