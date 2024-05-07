@@ -5,7 +5,6 @@
 # GENERAL
 # ------------------------------------------------------------------------------
 DJANGO_SETTINGS_MODULE=config.settings.development
-DJANGO_DEBUG=True
 DJANGO_SECRET_KEY='1!42-6x(!4nc4#1sn@s7lr#yfp=u!qg&9$ipg^z4st0e*hu+d7'
 
 # DATABASE
