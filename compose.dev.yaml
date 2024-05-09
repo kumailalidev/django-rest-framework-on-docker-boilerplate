@@ -143,7 +143,7 @@ services:
       - staticfiles:/usr/src/app/public/staticfiles
       - media:/usr/src/app/public/media
     ports:
-      - ${WEB_PORT_MAP}:80
+      - ${NGINX_PORT_MAP}:80
     depends_on:
       - app
 
