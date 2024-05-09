@@ -24,7 +24,7 @@ services:
       - ./env_files/dev/.env.app
     depends_on:
       - db
-      - smtp
+      - mailhog
 
   worker:
     build:
@@ -49,7 +49,7 @@ services:
       - db
       - redis
       - broker
-      - smtp
+      - mailhog
 
   flower:
     build:
@@ -76,7 +76,7 @@ services:
       - db
       - redis
       - broker
-      - smtp
+      - mailhog
 
   db:
     image: postgres:15
@@ -84,9 +84,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_USER=${DB_USER}
-      - POSTGRES_PASSWORD=${DB_PASSWORD}
-      - POSTGRES_DB=${DB_NAME}
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
 
   db_admin:
     image: dpage/pgadmin4
@@ -94,9 +94,9 @@ services:
     volumes:
       - pgadmin4_data:/var/lib/pgadmin
     environment:
-      - PGADMIN_DEFAULT_EMAIL=${DB_ADMIN_DEFAULT_EMAIL}
-      - PGADMIN_DEFAULT_PASSWORD=${DB_ADMIN_DEFAULT_PASSWORD}
-      - PGADMIN_LISTEN_PORT=${DB_ADMIN_LISTEN_PORT}
+      PGADMIN_DEFAULT_EMAIL: ${DB_ADMIN_DEFAULT_EMAIL}
+      PGADMIN_DEFAULT_PASSWORD: ${DB_ADMIN_DEFAULT_PASSWORD}
+      PGADMIN_LISTEN_PORT: ${DB_ADMIN_LISTEN_PORT}
     ports:
       - ${DB_ADMIN_LISTEN_PORT}:${DB_ADMIN_LISTEN_PORT}
     depends_on:
@@ -118,20 +118,20 @@ services:
     ports:
       - ${BROKER_MANGEMENT_PORT_MAP}:15672
     environment:
-      - RABBITMQ_DEFAULT_USER=${BROKER_USER}
-      - RABBITMQ_DEFAULT_PASS=${BROKER_PASSWORD}
-      - RABBITMQ_DEFAULT_VHOST=${BROKER_VHOST}
+      RABBITMQ_DEFAULT_USER: ${BROKER_USER}
+      RABBITMQ_DEFAULT_PASS: ${BROKER_PASSWORD}
+      RABBITMQ_DEFAULT_VHOST: ${BROKER_VHOST}
 
-  smtp:
+  mailhog:
     image: mailhog/mailhog:v1.0.0
     container_name: mailhog
     volumes:
-      - mailhog_data:${SMPT_STORAGE_PATH}
+      - mailhog_data:${MAILHOG_MAILDIR_PATH}
     ports:
-      - ${SMTP_WEBUI_PORT}:${SMTP_WEBUI_PORT}
+      - ${MAILHOG_WEBUI_PORT}:${MAILHOG_WEBUI_PORT}
     environment:
-      MH_STORAGE: ${SMPT_STORAGE}
-      MH_MAILDIR_PATH: ${SMPT_STORAGE_PATH}
+      MH_STORAGE: ${MAILHOG_STORAGE}
+      MH_MAILDIR_PATH: ${MAILHOG_MAILDIR_PATH}
 
   web:
     build:
