@@ -11,7 +11,7 @@ PGADMIN4=db_admin
 REDIS=redis
 RABBITMQ=broker
 NGINX=web
-MAILHOG=smtp
+MAILHOG=mailhog
 # ------------------------------------------------------------------------------
 SERVICE=$(DJANGO)
 # ------------------------------------------------------------------------------
@@ -98,6 +98,10 @@ list:
 
 # DJANGO
 # ------------------------------------------------------------------------------
+
+# Collect static files
+collectstatic:
+	docker compose -f $(COMPOSE_FILE) $(ENV_FILE) exec $(DJANGO) python manage.py collectstatic --no-input;
 
 # Create a Django app
 startapp:
