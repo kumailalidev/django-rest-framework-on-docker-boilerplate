@@ -42,7 +42,7 @@ urlpatterns = [
     ),
     # [API NAME]
     # core
-    path("api/ping/", include("project.core.urls", namespace="core")),
+    path("api/core/", include("project.core.urls", namespace="core")),
 ]
 
 # for development environment only
